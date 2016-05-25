@@ -9,7 +9,7 @@ Feature: TC-102
   5. Select room type as in test data.
   6. Select no-of-rooms as in test data.
   7. Enter check-in-date later than the check-out-date field as in test data.
-  8. Verify that system gives an error saying ‘check-in-date should not be later than check-out-date’.
+  8. Verify that system gives an error saying ï¿½check-in-date should not be later than check-out-dateï¿½.
   URL: http://adactin.com/HotelApp/index.php
   User:{test username}
   Password:{test password}
