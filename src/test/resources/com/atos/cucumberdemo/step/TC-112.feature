@@ -45,4 +45,4 @@ Total price should be price plus 10%
     Given I am on the Select Hotel page
     When I select the first hotel
     Then The "Book A Hotel" page should be shown
-    And The "final billed price" should be the total price should the price plus 10 procent
+    And The "final billed price" should be the total price should the price plus ten procent
