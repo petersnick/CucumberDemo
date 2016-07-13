@@ -1,6 +1,7 @@
 package com.atos.cucumberdemo.step;
 
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -12,6 +13,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -30,9 +33,10 @@ public class adactinSteps {
     private List<String> results = new ArrayList<String>();
     private int adults;
     private int no_rooms;
+    private BigDecimal percentage;
 
     public adactinSteps(SharedDriver webDriver) {
-        this.webDriver = webDriver; 
+        this.webDriver = webDriver;
         //this.driver = new driver;
     }
 
@@ -258,4 +262,13 @@ public class adactinSteps {
             }
         }
     }
-}
+
+    @And("^The \"([^\"]*)\" should be the total price should the price plus ten procent$")
+    public void the_final_price_should_be_total_price_plus_10procent(String text) throws Throwable {
+        double percentage = 1.1;
+        int price = 125 * adults * no_rooms;
+        Double total = price*percentage;
+        WebElement element = webDriver.findElement(By.id("final_price_dis"));
+        assertEquals("AUD $ " + total.intValue() + "", element.getAttribute("value"));
+        // Write code here that turns the phrase above into concrete actions
+    }}
